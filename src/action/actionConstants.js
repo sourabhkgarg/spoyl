@@ -3,3 +3,4 @@ export const SHOW_SELECTED = "SHOW_SELECTED";
 export const SET_SETTINGS = "SET_SETTINGS";
 export const SET_VIEWPORT ="SET_VIEWPORT";
 export const FETCH_IMAGES = 'FETCH_IMAGES';
+export const SEARCH_IMAGES = 'SEARCH_IMAGES';

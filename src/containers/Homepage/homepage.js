@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 
 import './homepage.scss';
 import {fetchListOfImages} from "../../action/actions";
-import Image from '../../components/Image/image';
-import {findPaddingBottom} from '../../helperFunction/helper';
 import InfiniteScroll from '../../components/InfiniteScroll/infiniteScroll';
+import ImageListContainer from '../../components/ImageListContainer/imageListContainer';
+
 
 class Main extends React.Component{
 
@@ -31,44 +31,6 @@ class Main extends React.Component{
     const {ImagesList} = this.props;
     const {data, loader , pageNo} = ImagesList;
 
-    let leftBlocks = [];
-    let middleBlocks = [];
-    let rightBlocks = [];
-
-
-    if(data.length > 0){
-
-      let type = 0;
-      data.forEach(item => {
-
-        if(item.urls && item.urls.thumb){
-
-          let paddBottom = {
-            paddingBottom : findPaddingBottom(item.width, item.height, 100)+"%"
-          };
-
-          let el =   <div className="block" key={item.id}> <Image src={item.urls.thumb}  style={paddBottom}/>  </div>;
-
-          if(type === 0){
-            leftBlocks.push(el);
-            type = 1;
-          }else if(type === 1){
-            middleBlocks.push(el);
-            type = 2;
-          }else if(type === 2){
-            rightBlocks.push(el);
-            type = 0;
-          }
-        }
-      });
-
-
-    }
-
-
-
-
-
     return (
       <div className="container">
 
@@ -80,19 +42,10 @@ class Main extends React.Component{
         <div className="max-1200 pad_top ">
           <h3 className="head_h3">Popular Images</h3>
           <InfiniteScroll offset={100} scrollhandler={this.fetchImages}>
-          <div className="img_container">
-            <div className="image_inner_container">
-              {leftBlocks}
-            </div>
-            <div className="image_inner_container">
-              {middleBlocks}
-            </div>
-            <div className="image_inner_container">
-              {rightBlocks}
-            </div>
-          </div>
+           <ImageListContainer ImagesList={ImagesList}/>
           </InfiniteScroll>
           </div> }
+
         </div>
 
     );
