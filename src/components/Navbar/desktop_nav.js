@@ -18,7 +18,9 @@ class Navbar extends React.Component{
   }
   onClick(){
     const {search} = this.state;
-    browserHistory.push('/search?search='+search);
+    if(search) {
+      browserHistory.push('/search?search=' + search);
+    }
 
   }
 

@@ -36,7 +36,7 @@ class Main extends React.Component{
     if(this.state.searchQuery !== queryString){
       searchLocalObj.data = [];
       searchLocalObj.pageNo = 1;
-      this.setState({searchQuery : getQueryStringValue('search') });
+      this.setState({searchQuery : queryString });
     }
 
     if(searchLocalObj.pageNo !== -1 && !searchLocalObj.loader){
@@ -49,8 +49,6 @@ class Main extends React.Component{
 
     const {SearchImagesList} = this.props;
     const {data, loader , pageNo} = SearchImagesList;
-
-
 
     return (
       <div className="container">

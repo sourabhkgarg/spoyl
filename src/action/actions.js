@@ -39,14 +39,14 @@ export function fetchListOfImages(imageList){
       dispatch(dispatchAction(Type.FETCH_IMAGES, newObj));
     });
   };
-
 }
+
+
 
 
 export function searchImages(imageList, query){
 
   return function (dispatch) {
-
     dispatch(dispatchAction(Type.SEARCH_IMAGES, {...imageList , loader : true}));
     let queryParam = '&page='+imageList.pageNo+'&query='+query;
     return api.searchImages(queryParam).then(response =>{

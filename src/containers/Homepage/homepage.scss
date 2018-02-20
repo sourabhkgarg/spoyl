@@ -19,6 +19,8 @@
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: white;
+    padding: 10px;
+    border-radius: 3px;
 
     .thumbnail{
       display: block;
@@ -69,7 +71,30 @@
     }
 
   }
+}
 
+.description{
+  margin-top: 10px;
+  width: 70%;
+  font-weight: bold;
+}
 
+.total_likes{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-top: 10px;
+  background-color: #f73356;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
 
+  svg{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 7px;
+  }
 }

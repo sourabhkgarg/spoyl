@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "transpile-script": "babel -d ./sitemap ./sitemap-script -s",
-    "sport-script": "babel -d ./sportSitemap ./venuesSitemap -s",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
     "start-message": "babel-node tools/startMessage.js",
