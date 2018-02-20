@@ -37,6 +37,13 @@ export function fetchListOfImages(imageList){
         };
       }
       dispatch(dispatchAction(Type.FETCH_IMAGES, newObj));
+    }).catch(e => {
+        let newObj = {
+          ...imageList,
+          pageNo: -1,
+          loader: false
+        };
+      dispatch(dispatchAction(Type.FETCH_IMAGES, newObj));
     });
   };
 }
@@ -68,6 +75,15 @@ export function searchImages(imageList, query){
         };
       }
       dispatch(dispatchAction(Type.SEARCH_IMAGES, newObj));
+    }).catch(e => {
+
+      let newObj = {
+          ...imageList,
+          pageNo: -1,
+          loader: false
+        };
+      dispatch(dispatchAction(Type.SEARCH_IMAGES, newObj));
+
     });
   };
 

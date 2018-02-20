@@ -19,8 +19,8 @@
     "static-build": "babel-node tools/build.js",
     "clean-server": "rm -rf ../production && mkdir ../production",
     "build-files": "babel -d ../production/ ./src --copy-files",
-    "copy-static": " mkdir ../static && cp ./dist",
-    "build-production": "npm run static-build && npm run clean-server  && npm run build-files",
+    "copy-static": "rm -rf ../static && mkdir ../static && cp -a ./dist ../static",
+    "build-production": "npm run static-build && npm run clean-server  && npm run build-files && npm run copy-static",
     "server-render": "node production/tools/mainServer.js"
   },
   "author": "Sourabh garg",

@@ -43,6 +43,10 @@ router.get('/', (req, res) => {
         let reduxState = {ImagesList : newObj};
         createHtmlWithStore(renderProps , res, req.device.type, reduxState );
 
+      }).catch(e => {
+        let newObj = {data: [], pageNo: -1, loader: false };
+        let reduxState = {ImagesList : newObj};
+        createHtmlWithStore(renderProps , res, req.device.type, reduxState );
       });
 
 
@@ -72,6 +76,10 @@ router.get('/search', (req, res) => {
 
       createHtmlWithStore(renderProps , res, req.device.type, reduxState );
 
+    }).catch(e => {
+      let newObj = {data: [], pageNo: -1, loader: false };
+      let reduxState = {SearchImagesList : newObj};
+      createHtmlWithStore(renderProps , res, req.device.type, reduxState );
     });
   });
 
